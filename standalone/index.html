@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Claude Sonnet 5.5 Hero - Standalone Component</title>
+  <!-- Load Next.js extracted CSS -->
+  <link rel="stylesheet" href="../dist/_next/static/chunks/0ar0r03233i0c.css" />
+  <link rel="stylesheet" href="../dist/_next/static/chunks/0xmu8wht0n7c1.css" />
+  <link rel="stylesheet" href="../dist/_next/static/chunks/14_07jj_mytk0.css" />
+  <link rel="stylesheet" href="../dist/_next/static/chunks/1czqrpqf9krjf.css" />
+  <link rel="stylesheet" href="../dist/_next/static/chunks/2gepcixj9k_19.css" />
+  <link rel="stylesheet" href="../dist/_next/static/chunks/2pnrpp88lh_gg.css" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #141413;
+      color: #edebe3;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      min-height: 250vh;
+    }
+    .standalone-controls {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 9999;
+      background: rgba(20, 20, 19, 0.88);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 8px;
+      padding: 14px 18px;
+      backdrop-filter: blur(10px);
+      font-size: 13px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    }
+    .standalone-controls button {
+      background: #343432;
+      color: #fff;
+      border: 1px solid #666;
+      padding: 6px 14px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 500;
+    }
+    .standalone-controls button:hover {
+      background: #4a4a46;
+    }
+    #status {
+      color: #9cdcfe;
+    }
+  </style>
+</head>
+<body data-theme="ivory">
+  <div id="hero-root">
+    <section aria-labelledby="mh-hero-title" class="MobyHero-module-scss-module__rdpyvG__moby-hero MobySanityContainer-module-scss-module__VJkCGq__hero" data-hero-nav="away">
+      <div class="stage">
+        <h1 class="MobyHero-module-scss-module__rdpyvG__visually-hidden MobyHero-module-scss-module__rdpyvG__heading" id="mh-hero-title">Claude Sonnet 5.5</h1>
+        <svg id="mh-ov" aria-hidden="true">
+          <defs>
+            <filter id="mh-title-glow" x="-8%" y="-40%" width="116%" height="180%" color-interpolation-filters="sRGB">
+              <feGaussianBlur in="SourceAlpha" stdDeviation="14" result="b"></feGaussianBlur>
+              <feFlood flood-color="#c9d4ff" flood-opacity=".16"></feFlood>
+              <feComposite in2="b" operator="in" result="g"></feComposite>
+              <feGaussianBlur in="SourceGraphic" stdDeviation=".22" result="s"></feGaussianBlur>
+              <feMerge>
+                <feMergeNode in="g"></feMergeNode>
+                <feMergeNode in="s"></feMergeNode>
+              </feMerge>
+            </filter>
+          </defs>
+          <g id="mh-title-g">
+            <text id="mh-title" opacity="0" text-anchor="middle"></text>
+          </g>
+        </svg>
+        <div class="landing">
+          <p class="eyebrow">September 28, 2026</p>
+          <nav aria-label="Contents">
+            <ol class="toc">
+              <li><a href="#introduction"><span class="n">(1)</span><span class="dots"></span><span>Introduction</span></a></li>
+              <li><a href="#performance"><span class="n">(2)</span><span class="dots"></span><span>Performance and cost</span></a></li>
+              <li><a href="#safety"><span class="n">(3)</span><span class="dots"></span><span>Safety</span></a></li>
+              <li><a href="#availability"><span class="n">(4)</span><span class="dots"></span><span>Getting started</span></a></li>
+            </ol>
+          </nav>
+        </div>
+        <button type="button" class="skipbtn">Skip intro</button>
+        <button type="button" class="skipbtn scrollcue">Scroll down</button>
+      </div>
+    </section>
+  </div>
+
+  <div class="standalone-controls">
+    <div><strong>Claude Sonnet 5.5 WebGL2 Engine</strong></div>
+    <div id="status">Initializing...</div>
+    <button id="toggle-btn">Unmount</button>
+  </div>
+
+  <script type="module">
+    import { mountLaunchHero } from './moby-hero.esm.js';
+
+    const heroEl = document.querySelector('section[data-hero-nav]');
+    const statusEl = document.getElementById('status');
+    const toggleBtn = document.getElementById('toggle-btn');
+
+    let instance = null;
+
+    function mount() {
+      try {
+        statusEl.textContent = 'Compiling shaders & loading dataset...';
+        instance = mountLaunchHero(heroEl, {
+          model: 'Sonnet 5.5',
+          clips: [
+            {
+              mp4: './assets/rotary2.20_lzi6r3olqw.mp4',
+              webm: './assets/rotary2.1vruayv9mptfd.webm',
+              still: './assets/rotary2.0zsu4u_1fav2-.webp'
+            }
+          ]
+        });
+
+        instance.started.then(() => {
+          statusEl.textContent = 'Rendering live WebGL2 scene (Active)';
+          console.log('Hero engine started successfully');
+        }).catch(err => {
+          statusEl.textContent = 'Error: ' + err.message;
+          console.error(err);
+        });
+      } catch (e) {
+        statusEl.textContent = 'Mount failed: ' + e.message;
+        console.error(e);
+      }
+    }
+
+    mount();
+
+    toggleBtn.addEventListener('click', () => {
+      if (instance) {
+        instance.destroy();
+        instance = null;
+        statusEl.textContent = 'Unmounted';
+        toggleBtn.textContent = 'Mount';
+      } else {
+        mount();
+        toggleBtn.textContent = 'Unmount';
+      }
+    });
+  </script>
+</body>
+</html>

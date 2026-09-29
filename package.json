@@ -1,0 +1,23 @@
+{
+  "name": "sonnet55-landing-reverse",
+  "version": "1.0.0",
+  "description": "Reverse engineering and componentization of Anthropic's Claude Sonnet 5.5 landing page Hero animation",
+  "main": "standalone/moby-hero.esm.js",
+  "type": "commonjs",
+  "scripts": {
+    "serve": "python -m http.server 4175",
+    "verify": "node tools/verify_standalone.js",
+    "verify:site": "node tools/verify_page.js",
+    "build:standalone": "node tools/build_standalone.js",
+    "format": "npx prettier --write \"extracted/*.js\" \"standalone/*.js\""
+  },
+  "keywords": [
+    "anthropic",
+    "claude-sonnet-5.5",
+    "webgl2",
+    "glsl",
+    "reverse-engineering"
+  ],
+  "author": "",
+  "license": "ISC"
+}

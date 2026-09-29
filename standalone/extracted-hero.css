@@ -1,0 +1,70 @@
+.TuskHero-module-scss-module__Z-OYQa__tusk-hero .landing{visibility:visible!important;opacity:1!important}
+.TuskHero-module-scss-module__Z-OYQa__tusk-hero[data-hero-failed] .landing{visibility:visible!important;opacity:1!important}
+.TuskHero-module-scss-module__Z-OYQa__tusk-hero .stage{isolation:isolate;height:100lvh;position:sticky;top:0;overflow:hidden}
+.TuskHero-module-scss-module__Z-OYQa__tusk-hero .landing{color:var(--hero-light);visibility:hidden;pointer-events:none;isolation:isolate;position:absolute;inset:0}
+.TuskHero-module-scss-module__Z-OYQa__tusk-hero .landing .eyebrow{top:var(--ttop,calc(var(--apex) - var(--tsize) * 1.55));font:500 var(--caption,14px)/1 var(--hero-sans);letter-spacing:.12em;text-align:center;text-transform:uppercase;margin:0;position:absolute;left:0;right:0}
+:is(.TuskHero-module-scss-module__Z-OYQa__tusk-hero .stage.loading #lh-ov,.TuskHero-module-scss-module__Z-OYQa__tusk-hero .stage.loading .landing){visibility:hidden}
+.TuskHero-module-scss-module__Z-OYQa__tusk-hero .stage:not(.ready) .cue{visibility:hidden}
+@media not (min-width:768px){.TuskHero-module-scss-module__Z-OYQa__tusk-hero .landing .eyebrow{font-size:var(--body-4,12px)}
+@media (max-width:760px){.TuskHero-module-scss-module__Z-OYQa__tusk-hero .landing .toc{width:min(236px,62vw);font-size:12.5px}
+.TuskHero-module-scss-module__Z-OYQa__tusk-hero .landing .eyebrow{transform:translateY(-1rem)}
+.MobyHero-module-scss-module__rdpyvG__moby-hero{--hero-bg:#0d0c0b;--hero-light:#f2ede4;--hero-name-scale:.94;--hero-cue-inset:var(--sp-32);--hero-serif:var(--anthropic-serif), "Anthropic Serif", georgia, serif;--hero-sans:var(--anthropic-sans), "Anthropic Sans", system-ui, sans-serif;--hero-mono:var(--anthropic-mono), "Anthropic Mono", ui-monospace, monospace;background:var(--hero-bg);font-feature-settings:"dlig" 0;font-synthesis:weight style small-caps;font-variant-ligatures:common-ligatures;letter-spacing:normal;text-rendering:auto;-webkit-font-smoothing:antialiased;height:100vh;line-height:normal;position:relative}
+@media (scripting:none){.MobyHero-module-scss-module__rdpyvG__moby-hero{--apex:53vh;--tsize:calc(clamp(34px, 6.6vw, 112px) * var(--hero-name-scale,1));--ttop:calc(var(--apex) - var(--tsize) * 2)}
+.MobyHero-module-scss-module__rdpyvG__moby-hero .landing{visibility:visible!important;opacity:1!important}
+.MobyHero-module-scss-module__rdpyvG__moby-hero .MobyHero-module-scss-module__rdpyvG__heading{top:calc(var(--apex) - var(--tsize)*1.35);width:auto;height:auto;color:var(--hero-light);font:400 var(--tsize)/1.05 var(--hero-serif);letter-spacing:-.012em;white-space:normal;text-align:center;clip:auto;margin:0;left:0;right:0;overflow:visible}
+.MobyHero-module-scss-module__rdpyvG__moby-hero .skipbtn{display:none}
+.MobyHero-module-scss-module__rdpyvG__moby-hero .stage .landing .toc{top:calc(var(--apex) + clamp(40px,9vh,96px));display:block;position:absolute;transform:translate(-50%)}
+.MobyHero-module-scss-module__rdpyvG__moby-hero .stage .landing .eyebrow{translate:none}
+.MobyHero-module-scss-module__rdpyvG__moby-hero[data-hero-failed]{--apex:53vh;--tsize:calc(clamp(34px, 6.6vw, 112px) * var(--hero-name-scale,1));--ttop:calc(var(--apex) - var(--tsize) * 2)}
+.MobyHero-module-scss-module__rdpyvG__moby-hero[data-hero-failed] .landing{visibility:visible!important;opacity:1!important}
+.MobyHero-module-scss-module__rdpyvG__moby-hero[data-hero-failed] .MobyHero-module-scss-module__rdpyvG__heading{top:calc(var(--apex) - var(--tsize)*1.35);width:auto;height:auto;color:var(--hero-light);font:400 var(--tsize)/1.05 var(--hero-serif);letter-spacing:-.012em;white-space:normal;text-align:center;clip:auto;margin:0;left:0;right:0;overflow:visible}
+.MobyHero-module-scss-module__rdpyvG__moby-hero[data-hero-failed] .skipbtn{display:none}
+.MobyHero-module-scss-module__rdpyvG__moby-hero[data-hero-failed] .stage .landing .toc{top:calc(var(--apex) + clamp(40px,9vh,96px));display:block;position:absolute;transform:translate(-50%)}
+.MobyHero-module-scss-module__rdpyvG__moby-hero[data-hero-failed] .stage .landing .eyebrow{translate:none}
+.MobyHero-module-scss-module__rdpyvG__moby-hero .stage{touch-action:pan-y;isolation:isolate;height:100svh;position:sticky;top:0;overflow:hidden}
+:is(.MobyHero-module-scss-module__rdpyvG__moby-hero #mh-fx,.MobyHero-module-scss-module__rdpyvG__moby-hero #mh-c2){pointer-events:none;width:100%;height:100%;display:block;position:absolute;inset:0}
+.MobyHero-module-scss-module__rdpyvG__moby-hero .veil{z-index:40;opacity:1;pointer-events:none;background:#05060a;position:absolute;inset:0}
+.MobyHero-module-scss-module__rdpyvG__moby-hero #mh-ov{touch-action:pan-y;pointer-events:none;width:100%;height:100%;position:absolute;inset:0;overflow:visible}
+.MobyHero-module-scss-module__rdpyvG__moby-hero #mh-ov text{font-family:var(--hero-serif);font-kerning:normal}
+.MobyHero-module-scss-module__rdpyvG__moby-hero #mh-title-g{transform-box:fill-box;transform-origin:50% 60%;translate:0 -3rem}
+:is(.MobyHero-module-scss-module__rdpyvG__moby-hero #mh-title,.MobyHero-module-scss-module__rdpyvG__moby-hero #mh-ov .title-x){letter-spacing:-.012em;fill:var(--hero-light);font-weight:400}
+:is(.MobyHero-module-scss-module__rdpyvG__moby-hero #mh-title .rest,.MobyHero-module-scss-module__rdpyvG__moby-hero #mh-ov .title-x .rest){font-weight:465}
+:is(.MobyHero-module-scss-module__rdpyvG__moby-hero #mh-title,.MobyHero-module-scss-module__rdpyvG__moby-hero #mh-title .rest){word-spacing:.16em}
+.MobyHero-module-scss-module__rdpyvG__moby-hero .claude{font-feature-settings:"dlig" 1,"liga" 1}
+.MobyHero-module-scss-module__rdpyvG__moby-hero #mh-title .claude-e.e-drawn{fill:#0000}
+.MobyHero-module-scss-module__rdpyvG__moby-hero #mh-title-g .claude-e-path{fill:var(--hero-light)}
+.MobyHero-module-scss-module__rdpyvG__moby-hero #mh-title-g text{filter:url(#mh-title-glow)}
+.MobyHero-module-scss-module__rdpyvG__moby-hero #mh-title-g .claude-e-g{filter:url(#mh-title-glow)}
+.MobyHero-module-scss-module__rdpyvG__moby-hero .landing{color:var(--hero-light);visibility:hidden;pointer-events:none;position:absolute;inset:0}
+.MobyHero-module-scss-module__rdpyvG__moby-hero .landing .eyebrow{top:var(--ttop,calc(var(--apex) - var(--tsize) * 1.55));font:500 var(--caption,14px)/1 var(--hero-sans);letter-spacing:.12em;text-align:center;text-transform:uppercase;margin:0;position:absolute;left:0;right:0;translate:0 -2.9rem}
+.MobyHero-module-scss-module__rdpyvG__moby-hero .landing .toc{top:calc(var(--apex) + clamp(40px,9vh,96px));width:min(360px,100vw - 48px);font:400 13.5px/1 var(--hero-serif);pointer-events:auto;margin:-5.5px 0 0;padding:0;list-style:none;position:absolute;left:50%;transform:translate(-50%,-1.5rem)}
+.MobyHero-module-scss-module__rdpyvG__moby-hero .landing .toc a{color:inherit;align-items:baseline;gap:6px;padding:5.5px 0;text-decoration:none;transition:opacity .25s;display:flex}
+.MobyHero-module-scss-module__rdpyvG__moby-hero .landing .toc:has(a:hover,a:focus-visible) a:not(:hover,:focus-visible){opacity:.55}
+.MobyHero-module-scss-module__rdpyvG__moby-hero .landing .toc .n{font-family:var(--hero-mono);font-size:11px}
+.MobyHero-module-scss-module__rdpyvG__moby-hero .landing .toc .dots{opacity:.45;border-bottom:1px dotted;flex:1;transform:translateY(-3px)}
+@media (max-height:520px){.MobyHero-module-scss-module__rdpyvG__moby-hero .landing .toc{top:calc(var(--apex) + 28px)}
+.MobyHero-module-scss-module__rdpyvG__moby-hero .skipbtn{bottom:calc(var(--hero-cue-inset) - var(--sp-12));z-index:45;padding:var(--sp-12) var(--sp-16);color:color-mix(in srgb, var(--hero-light) 55%, transparent);font:400 12px/normal var(--hero-sans);letter-spacing:-.16px;white-space:nowrap;cursor:pointer;background:0 0;border:0;border-radius:4px;margin:0;transition:opacity .5s,color .2s;position:absolute;left:50%;transform:translate(-50%)}
+.MobyHero-module-scss-module__rdpyvG__moby-hero .skipbtn:hover{color:color-mix(in srgb, var(--hero-light) 85%, transparent)}
+.MobyHero-module-scss-module__rdpyvG__moby-hero .skipbtn:focus-visible{outline:1px solid color-mix(in srgb, var(--hero-light) 70%, transparent);outline-offset:-4px}
+.MobyHero-module-scss-module__rdpyvG__moby-hero .skipbtn.gone{opacity:0;pointer-events:none}
+.MobyHero-module-scss-module__rdpyvG__moby-hero .scrollcue{opacity:0;pointer-events:none}
+.MobyHero-module-scss-module__rdpyvG__moby-hero .scrollcue.on{pointer-events:auto;animation:8s ease-in-out infinite MobyHero-module-scss-module__rdpyvG__scrollcue}
+.MobyHero-module-scss-module__rdpyvG__moby-hero .scrollcue.on:focus-visible{opacity:1;animation:none}
+@media (prefers-reduced-motion:reduce){.MobyHero-module-scss-module__rdpyvG__moby-hero .scrollcue.on{opacity:1;animation:none}
+.MobyHero-module-scss-module__rdpyvG__moby-hero .scrollcue.off{opacity:0;pointer-events:none;transition:opacity .4s;animation:none}
+@media (hover:none),(max-width:1023px){.MobyHero-module-scss-module__rdpyvG__moby-hero .scrollcue{display:none!important}
+:is(.MobyHero-module-scss-module__rdpyvG__moby-hero .stage.loading #mh-ov,.MobyHero-module-scss-module__rdpyvG__moby-hero .stage.loading .landing){visibility:hidden}
+.MobyHero-module-scss-module__rdpyvG__moby-hero .stage:not(.ready) .skipbtn{visibility:hidden}
+@media not (min-width:768px){.MobyHero-module-scss-module__rdpyvG__moby-hero .landing .toc{width:min(236px,62vw);font-size:12.5px}
+.MobyHero-module-scss-module__rdpyvG__moby-hero .landing .eyebrow{font-size:var(--body-4,12px)}
+@media (orientation:portrait){.MobyHero-module-scss-module__rdpyvG__moby-hero #mh-title-g{translate:0 -2.5rem}
+.MobyHero-module-scss-module__rdpyvG__moby-hero .landing .eyebrow{translate:0 -3.4rem}
+.MobyHero-module-scss-module__rdpyvG__moby-hero .landing .toc{top:var(--toc-below,60vh);width:min(300px,100vw - 48px);margin:0;transform:translate(-50%)}
+@media (orientation:portrait) and (not (min-width:768px)){.MobyHero-module-scss-module__rdpyvG__moby-hero #mh-title-g{translate:0 -2.75rem}
+.MobyHero-module-scss-module__rdpyvG__moby-hero .landing .eyebrow{translate:0 -3.15rem}
+@media (orientation:portrait) and (min-width:600px) and (not (min-width:768px)){.MobyHero-module-scss-module__rdpyvG__moby-hero{--hero-name-scale:1.06}
+.MobyHero-module-scss-module__rdpyvG__moby-hero #mh-title-g{translate:0 -2.25rem}
+.MobyHero-module-scss-module__rdpyvG__moby-hero .landing .eyebrow{translate:0 -2.75rem}
+@media (orientation:landscape) and (max-height:540px){.MobyHero-module-scss-module__rdpyvG__moby-hero .landing .toc{display:none}
+.MobyHero-module-scss-module__rdpyvG__moby-hero #mh-title-g{translate:0 -1rem}
+.MobyHero-module-scss-module__rdpyvG__moby-hero .landing .eyebrow{translate:0 -.9rem}
