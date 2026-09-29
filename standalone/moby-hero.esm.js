@@ -1319,9 +1319,9 @@ function initEngine(customAssets = {}) {
                           { href: "#mh-name-line", startOffset: "50%" },
                           i,
                         ),
-                        u = l("tspan", { class: "claude" }, c, "Claud");
+                        u = l("tspan", { class: "claude" }, c, "Fronti");
                       if (
-                        (l("tspan", { class: "claude-e" }, u, "e"),
+                        (l("tspan", { class: "claude-e" }, u, "er"),
                         t || l("tspan", { class: "rest" }, c, " " + e),
                         n.replaceChildren(),
                         t)

@@ -3,61 +3,50 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Claude Sonnet 5.5 Hero - Standalone Component</title>
-  <!-- Load Next.js extracted CSS -->
-  <link rel="stylesheet" href="../dist/_next/static/chunks/0ar0r03233i0c.css" />
-  <link rel="stylesheet" href="../dist/_next/static/chunks/0xmu8wht0n7c1.css" />
-  <link rel="stylesheet" href="../dist/_next/static/chunks/14_07jj_mytk0.css" />
-  <link rel="stylesheet" href="../dist/_next/static/chunks/1czqrpqf9krjf.css" />
-  <link rel="stylesheet" href="../dist/_next/static/chunks/2gepcixj9k_19.css" />
-  <link rel="stylesheet" href="../dist/_next/static/chunks/2pnrpp88lh_gg.css" />
+  <title>Frontier 5.5 Hero - Standalone WebGL2 Component</title>
+  <!-- Self-contained Hero Styles -->
+  <link rel="stylesheet" href="./hero.css" />
   <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background: #141413;
-      color: #edebe3;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      min-height: 250vh;
-    }
     .standalone-controls {
       position: fixed;
-      bottom: 20px;
-      right: 20px;
+      bottom: 24px;
+      right: 24px;
       z-index: 9999;
       background: rgba(20, 20, 19, 0.88);
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.15);
       border-radius: 8px;
       padding: 14px 18px;
-      backdrop-filter: blur(10px);
+      backdrop-filter: blur(12px);
       font-size: 13px;
       display: flex;
       flex-direction: column;
       gap: 10px;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+      color: #edebe3;
     }
     .standalone-controls button {
-      background: #343432;
+      background: #2a2a28;
       color: #fff;
-      border: 1px solid #666;
+      border: 1px solid #555;
       padding: 6px 14px;
       border-radius: 4px;
       cursor: pointer;
       font-weight: 500;
+      transition: background 0.2s;
     }
     .standalone-controls button:hover {
-      background: #4a4a46;
+      background: #3e3e3a;
     }
     #status {
-      color: #9cdcfe;
+      color: #a4c4ff;
     }
   </style>
 </head>
 <body data-theme="ivory">
   <div id="hero-root">
-    <section aria-labelledby="mh-hero-title" class="MobyHero-module-scss-module__rdpyvG__moby-hero MobySanityContainer-module-scss-module__VJkCGq__hero" data-hero-nav="away">
+    <section aria-labelledby="mh-hero-title" class="MobyHero-module-scss-module__rdpyvG__moby-hero" data-hero-nav="away">
       <div class="stage">
-        <h1 class="MobyHero-module-scss-module__rdpyvG__visually-hidden MobyHero-module-scss-module__rdpyvG__heading" id="mh-hero-title">Claude Sonnet 5.5</h1>
+        <h1 class="visually-hidden" id="mh-hero-title">Frontier 5.5</h1>
         <svg id="mh-ov" aria-hidden="true">
           <defs>
             <filter id="mh-title-glow" x="-8%" y="-40%" width="116%" height="180%" color-interpolation-filters="sRGB">
@@ -76,13 +65,13 @@
           </g>
         </svg>
         <div class="landing">
-          <p class="eyebrow">September 28, 2026</p>
+          <p class="eyebrow">Frontier Intelligence · Autonomous Reasoning</p>
           <nav aria-label="Contents">
             <ol class="toc">
-              <li><a href="#introduction"><span class="n">(1)</span><span class="dots"></span><span>Introduction</span></a></li>
-              <li><a href="#performance"><span class="n">(2)</span><span class="dots"></span><span>Performance and cost</span></a></li>
-              <li><a href="#safety"><span class="n">(3)</span><span class="dots"></span><span>Safety</span></a></li>
-              <li><a href="#availability"><span class="n">(4)</span><span class="dots"></span><span>Getting started</span></a></li>
+              <li><a href="#overview"><span class="n">(1)</span> Overview</a></li>
+              <li><a href="#benchmarks"><span class="n">(2)</span> Evaluation</a></li>
+              <li><a href="#architecture"><span class="n">(3)</span> Architecture</a></li>
+              <li><a href="#deployment"><span class="n">(4)</span> Deployment</a></li>
             </ol>
           </nav>
         </div>
@@ -93,7 +82,7 @@
   </div>
 
   <div class="standalone-controls">
-    <div><strong>Claude Sonnet 5.5 WebGL2 Engine</strong></div>
+    <div><strong>Frontier 5.5 WebGL2 Cupola Engine</strong></div>
     <div id="status">Initializing...</div>
     <button id="toggle-btn">Unmount</button>
   </div>
@@ -111,7 +100,7 @@
       try {
         statusEl.textContent = 'Compiling shaders & loading dataset...';
         instance = mountLaunchHero(heroEl, {
-          model: 'Sonnet 5.5',
+          model: '5.5',
           clips: [
             {
               mp4: './assets/rotary2.20_lzi6r3olqw.mp4',

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Frontier 5.5 - WebGL2 Cupola Hero Animation Component</title>
+  <!-- Self-contained Hero Styles -->
+  <link rel="stylesheet" href="./standalone/hero.css" />
+  <style>
+    /* Top Navigation Bar */
+    .top-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 32px;
+      background: rgba(20, 20, 19, 0.7);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: 13px;
+    }
+    .brand-title {
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      color: #edebe3;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .nav-links a {
+      color: rgba(237, 235, 227, 0.75);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover {
+      color: #fff;
+    }
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      font-size: 11px;
+      background: rgba(164, 196, 255, 0.15);
+      color: #a4c4ff;
+      border-radius: 12px;
+      border: 1px solid rgba(164, 196, 255, 0.3);
+    }
+    .standalone-controls {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 9999;
+      background: rgba(20, 20, 19, 0.88);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 8px;
+      padding: 14px 18px;
+      backdrop-filter: blur(12px);
+      font-size: 13px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+      color: #edebe3;
+    }
+    .standalone-controls button {
+      background: #2a2a28;
+      color: #fff;
+      border: 1px solid #555;
+      padding: 6px 14px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: background 0.2s;
+    }
+    .standalone-controls button:hover {
+      background: #3e3e3a;
+    }
+    #status {
+      color: #a4c4ff;
+    }
+  </style>
+</head>
+<body data-theme="ivory">
+  <header class="top-nav">
+    <a href="#" class="brand-title">
+      <span>FRONTIER 5.5</span>
+      <span class="badge">WebGL2 Cupola Engine</span>
+    </a>
+    <nav class="nav-links">
+      <a href="./standalone/">Standalone Demo</a>
+      <a href="./dist/">Full Landing Mirror</a>
+      <a href="https://github.com/connectedGraph/sonnet55-landing-reverse" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+  </header>
+
+  <div id="hero-root">
+    <section aria-labelledby="mh-hero-title" class="MobyHero-module-scss-module__rdpyvG__moby-hero" data-hero-nav="away">
+      <div class="stage">
+        <h1 class="visually-hidden" id="mh-hero-title">Frontier 5.5</h1>
+        <svg id="mh-ov" aria-hidden="true">
+          <defs>
+            <filter id="mh-title-glow" x="-8%" y="-40%" width="116%" height="180%" color-interpolation-filters="sRGB">
+              <feGaussianBlur in="SourceAlpha" stdDeviation="14" result="b"></feGaussianBlur>
+              <feFlood flood-color="#c9d4ff" flood-opacity=".16"></feFlood>
+              <feComposite in2="b" operator="in" result="g"></feComposite>
+              <feGaussianBlur in="SourceGraphic" stdDeviation=".22" result="s"></feGaussianBlur>
+              <feMerge>
+                <feMergeNode in="g"></feMergeNode>
+                <feMergeNode in="s"></feMergeNode>
+              </feMerge>
+            </filter>
+          </defs>
+          <g id="mh-title-g">
+            <text id="mh-title" opacity="0" text-anchor="middle"></text>
+          </g>
+        </svg>
+        <div class="landing">
+          <p class="eyebrow">Frontier Intelligence · Autonomous Reasoning</p>
+          <nav aria-label="Contents">
+            <ol class="toc">
+              <li><a href="#overview"><span class="n">(1)</span> Overview</a></li>
+              <li><a href="#benchmarks"><span class="n">(2)</span> Evaluation</a></li>
+              <li><a href="#architecture"><span class="n">(3)</span> Architecture</a></li>
+              <li><a href="#deployment"><span class="n">(4)</span> Deployment</a></li>
+            </ol>
+          </nav>
+        </div>
+        <button type="button" class="skipbtn">Skip intro</button>
+        <button type="button" class="skipbtn scrollcue">Scroll down</button>
+      </div>
+    </section>
+  </div>
+
+  <div class="standalone-controls">
+    <div><strong>Frontier 5.5 WebGL2 Cupola Engine</strong></div>
+    <div id="status">Initializing...</div>
+    <button id="toggle-btn">Unmount</button>
+  </div>
+
+  <script type="module">
+    import { mountLaunchHero } from './standalone/moby-hero.esm.js';
+
+    const heroEl = document.querySelector('section[data-hero-nav]');
+    const statusEl = document.getElementById('status');
+    const toggleBtn = document.getElementById('toggle-btn');
+
+    let instance = null;
+
+    function mount() {
+      try {
+        statusEl.textContent = 'Compiling shaders & loading dataset...';
+        instance = mountLaunchHero(heroEl, {
+          model: '5.5',
+          clips: [
+            {
+              mp4: './standalone/assets/rotary2.20_lzi6r3olqw.mp4',
+              webm: './standalone/assets/rotary2.1vruayv9mptfd.webm',
+              still: './standalone/assets/rotary2.0zsu4u_1fav2-.webp'
+            }
+          ]
+        });
+
+        instance.started.then(() => {
+          statusEl.textContent = 'Rendering live WebGL2 scene (Active)';
+          console.log('Hero engine started successfully');
+        }).catch(err => {
+          statusEl.textContent = 'Error: ' + err.message;
+          console.error(err);
+        });
+      } catch (e) {
+        statusEl.textContent = 'Mount failed: ' + e.message;
+        console.error(e);
+      }
+    }
+
+    mount();
+
+    toggleBtn.addEventListener('click', () => {
+      if (instance) {
+        instance.destroy();
+        instance = null;
+        statusEl.textContent = 'Unmounted';
+        toggleBtn.textContent = 'Mount';
+      } else {
+        mount();
+        toggleBtn.textContent = 'Unmount';
+      }
+    });
+  </script>
+</body>
+</html>

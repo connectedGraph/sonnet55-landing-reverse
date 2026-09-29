@@ -4,10 +4,10 @@ const path = require('path');
 const os = require('os');
 
 async function main() {
-  const PORT = 9333;
+  const PORT = 9335;
   console.log(`Starting Edge in headless mode on port ${PORT}...`);
   const edgePath = "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe";
-  const tempProfile = path.join(os.tmpdir(), 'edge-debug-' + Date.now());
+  const tempProfile = path.join(os.tmpdir(), 'edge-root-' + Date.now());
 
   const browser = spawn(edgePath, [
     '--headless=new',
@@ -19,13 +19,6 @@ async function main() {
     '--window-size=1440,900',
     'http://127.0.0.1:4175/'
   ]);
-
-  browser.stderr.on('data', d => {
-    const str = d.toString();
-    if (str.includes('DevTools listening on')) {
-      console.log('DevTools listening detected:', str.trim());
-    }
-  });
 
   let wsUrl = null;
   for (let i = 0; i < 30; i++) {
@@ -82,7 +75,7 @@ async function main() {
   await send('Runtime.enable');
   await send('Page.enable');
 
-  console.log('Waiting 5 seconds for page & WebGL shaders to compile and render...');
+  console.log('Waiting 5 seconds for Root page Hero shaders & dataset to load...');
   await new Promise(r => setTimeout(r, 5000));
 
   // Check DOM state
@@ -93,11 +86,10 @@ async function main() {
       const mhC2 = document.querySelector('#mh-c2');
       const mhOv = document.querySelector('#mh-ov');
       const title = document.querySelector('#mh-title');
+      const status = document.querySelector('#status')?.textContent;
       const canvases = Array.from(document.querySelectorAll('canvas')).map(c => ({ id: c.id, w: c.width, h: c.height }));
       return {
-        heroNav: hero?.getAttribute('data-hero-nav'),
-        heroLive: hero?.getAttribute('data-hero-live'),
-        heroFailed: hero?.getAttribute('data-hero-failed'),
+        status,
         canvases,
         hasMhOv: !!mhOv,
         titleText: title?.textContent,
@@ -107,21 +99,20 @@ async function main() {
     returnByValue: true
   });
 
-  console.log('\n=== Hero DOM Status ===');
+  console.log('\n=== Root Page DOM Status ===');
   console.log(JSON.stringify(evalResult.result.value, null, 2));
 
   // Capture screenshot
-  console.log('Capturing screenshot...');
   const screenshot = await send('Page.captureScreenshot', { format: 'png' });
   if (screenshot && screenshot.data) {
     const buffer = Buffer.from(screenshot.data, 'base64');
-    fs.writeFileSync('site-preview.png', buffer);
-    console.log(`Saved screenshot to site-preview.png (${buffer.length} bytes)`);
+    fs.writeFileSync('preview.png', buffer);
+    console.log(`Saved screenshot to preview.png (${buffer.length} bytes)`);
   }
 
   ws.close();
   browser.kill();
-  console.log('Test completed successfully.');
+  console.log('Root page test completed.');
 }
 
 main().catch(err => {
